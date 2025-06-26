@@ -19,18 +19,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
+      font-size: 1.5rem;
       margin: 0;
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-
-    header h1:hover {
-      color: #ffcc00;
+      flex: 1 1 100%;
+      margin-bottom: 10px;
+      text-align: left;
+      
     }
 
     header button {
@@ -43,6 +42,9 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
+      margin-left: 200px;
+      margin-top:-30px;
+      
     }
 
     header button:hover {
@@ -50,27 +52,33 @@
     }
 
     .container {
-      padding: 2rem;
+      padding: 1.5rem;
       max-width: 900px;
       margin: auto;
     }
 
     .companies {
       display: flex;
-      justify-content: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 1rem;
       margin-bottom: 2rem;
-      flex-wrap: wrap;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: center;
     }
 
     .company {
+      flex: 0 0 auto;
       background: #003366;
       color: white;
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
+      white-space: nowrap;
       transition: background 0.3s;
+      background-color: #003c79;
     }
 
     .company:hover {
@@ -83,7 +91,7 @@
     }
 
     .search-bar input {
-      width: 80%;
+      width: 90%;
       max-width: 400px;
       padding: 0.7rem;
       font-size: 1rem;
@@ -106,7 +114,7 @@
       background: white;
       margin-bottom: 10px;
       padding: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s ease, background-color 0.3s ease;
@@ -118,8 +126,8 @@
     }
 
     button {
-      padding: 4px 8px;
-      font-size: 16px;
+      padding: 4px 10px;
+      font-size: 15px;
       font-weight: bold;
       cursor: pointer;
       background-color: #003366;
@@ -133,25 +141,40 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 10px;
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      header button {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+      }
+
+      .company {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+      }
+      .companies{
+        display: flex;
+        justify-content: center;
       }
 
       .search-bar input {
-        width: 95%;
+        font-size: 0.9rem;
+        padding: 0.6rem;
       }
 
-      .companies {
-        flex-direction: column;
-        align-items: center;
+      .bearing-list li {
+        font-size: 0.95rem;
+        padding: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Sri Krishna Spares & Fabrications - Bearings List</h1>
+    <h1>Bearings List</h1>
     <button onclick="goHome()">Back to Home</button>
   </header>
 
@@ -191,90 +214,39 @@
         { number: 'TX-6203 (2RS)-KIT WC', price: 220 },
       ],
       nbc: [
-        { number: '3010', price: 900 },
-        { number: '32211', price: 800 },
-        { number: '6307ZZ', price: 350 },
-        { number: '32209', price: 800 },
-        { number: '30209', price: 800 },
-        { number: '32213', price: 750 },
-        { number: '32212', price: 650 },
-        { number: '32216', price: 1200 },
-        { number: '6312', price: 1000 },
-
-
-        { number: '6307ZZ', price: 350 },
-        { number: '6008LLU', price: 300 },
-        { number: '30210', price: 500 },
-        { number: '6305LLU', price: 300 },
-        { number: '30207', price: 350 },
-        { number: '6205LLU', price: 200 },
-        { number: '6304RSS', price: 250 },
-        { number: '6206RSS', price: 350 },
-        { number: '6005LLU', price: 200 },
-        { number: '6310ZZ', price: 800 },
-        { number: '3780/3720', price: 900 },
-        { number: '6207ZZ', price: 250 },
-        { number: '32207B', price: 500 },
-        { number: '6307LLU', price: 300 },
-        { number: '5288OU/917773', price: 400 },
-        { number: '32208', price: 550 },
-        { number: '30205', price: 250 },
-        { number: '6302ZZ', price: 100 },
-        { number: '6201ZZ', price: 50 },
-        { number: '6004LLU', price: 150 },
-        { number: '6202LLU', price: 150 },
-        { number: '6003LLU', price: 180 },
-        { number: '6201ZZ', price: 200 },
-        { number: '6302LLU', price: 200 },
-        { number: '6208ZZ', price: 400 },
-        { number: '6309', price: 500 },
-        { number: '6310ZZ', price: 200 },
-        { number: '32309', price: 200 },
-        { number: '30305', price: 220 },
-        { number: '51207', price: 250 },
-        { number: '6005ZZ', price: 130 },
-        { number: '6006', price: 130 },
-        { number: 'LM48548/LM48510', price: 400 },
-        { number: '6303ZZ', price: 150 },
-        { number: '32206', price: 450 },
-        { number: '6203LLU/6202ZZ', price: 80 },
-        { number: '32305', price: 300 },
-
-        { number: '9254460/925447', price: 450 },
-        { number: '52799U/52800U', price: 550 },
-        { number: '1988/22', price: 300 },
-        { number: 'T-138', price: 250 },
-        { number: '462A/453X', price: 600 },
-
+        { number: '3010' }, { number: '32211' }, { number: '6307ZZ' },
+        { number: '32209' }, { number: '30209' }, { number: '32213' },
+        { number: '32212' }, { number: '32216' }, { number: '6312' },
+        { number: '6008LLU' }, { number: '30210' }, { number: '6305LLU' },
+        { number: '30207' }, { number: '6205LLU' }, { number: '6304RSS' },
+        { number: '6206RSS' }, { number: '6005LLU' }, { number: '6310ZZ' },
+        { number: '3780/3720' }, { number: '6207ZZ' }, { number: '32207' },
+        { number: '6307LLU' }, { number: '5288OU/917773' }, { number: '32208' },
+        { number: '30205' }, { number: '6302ZZ' }, { number: '6201ZZ' },
+        { number: '6004LLU' }, { number: '6202LLU' }, { number: '6003LLU' },
+        { number: '6302LLU' }, { number: '6208ZZ' }, { number: '6309' },
+        { number: '32309' }, { number: '30305' }, { number: '51207' },
+        { number: '6005ZZ' }, { number: '6006' }, { number: 'LM48548/LM48510' },
+        { number: '6303ZZ' }, { number: '32206' }, { number: '6203LLU/6202ZZ' },
+        { number: '32305' }, { number: '9254460/925447' }, { number: '52799U/52800U' },
+        { number: '1988/22' }, { number: 'T-138' }, { number: '462A/453X' }
       ],
       aba: [
-        { number: 'NJ-309', price: 645 },
-        { number: '6207ZZ', price: 360 },
-        { number: 'T-126', price: 100 },
-        { number: '30204', price: 210 },
-        { number: '51107', price: 80 },
-        { number: '32207', price: 325 },
-        { number: '804846/10', price: 595 },
-        { number: '6212', price: 600 },
-        { number: '32206', price: 325 },
-        { number: '6210 NR', price: 440 },
-        { number: '369/62', price: 425 },
-        { number: '32212 X', price: 799 },
-        { number: '09067/195', price: 253 },
-        { number: '30305', price: 254 },
-        { number: '6209 K', price: 395 },
-        { number: '306445-C', price: 480 },
-        { number: '51207', price: 152  },
-
+        { number: 'NJ-309', price: 645 }, { number: '6207ZZ', price: 360 },
+        { number: 'T-126', price: 100 }, { number: '30204', price: 210 },
+        { number: '51107', price: 80 }, { number: '32207', price: 325 },
+        { number: '804846/10', price: 595 }, { number: '6212', price: 600 },
+        { number: '32206', price: 325 }, { number: '6210 NR', price: 440 },
+        { number: '369/62', price: 425 }, { number: '32212 X', price: 799 },
+        { number: '09067/195', price: 253 }, { number: '30305', price: 254 },
+        { number: '6209 K', price: 395 }, { number: '306445-C', price: 480 },
+        { number: '51207', price: 152 }
       ],
-      arb:[
-        { number: '6010T (306445c)', price: 675 },
-        { number: '3982/3920', price: 1134 },
-        { number: '1988/22', price: 315 },
-        { number: 'CK-1988/K-22', price: 445 },
-        { number: '48548/10', price: 265 },
-        { number: '25877/21', price: 410 },
-        { number: 'T-138', price: 300 },
+      arb: [
+        { number: '6010T (306445c)', price: 675 }, { number: '3982/3920', price: 1134 },
+        { number: '1988/22', price: 315 }, { number: 'CK-1988/K-22', price: 445 },
+        { number: '48548/10', price: 265 }, { number: '25877/21', price: 410 },
+        { number: 'T-138', price: 300 }
       ]
     };
 
@@ -285,16 +257,14 @@
       const bearingList = document.getElementById('bearingList');
       bearingList.innerHTML = '';
 
-      bearingsData[company].forEach((item, index) => {
+      bearingsData[company].forEach(item => {
         const key = `${company}_${item.number}`;
         const count = parseInt(localStorage.getItem(key)) || 0;
 
         const li = document.createElement('li');
         li.innerHTML = `
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <strong>${item.number}</strong> - ₹${item.price}
-            </div>
+            <div><strong>${item.number}</strong>${item.price ? ` - ₹${item.price}` : ''}</div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <button onclick="decrement('${key}')">-</button>
               <span id="${key}_count">${count}</span>
@@ -360,8 +330,9 @@
     }
 
     function goHome() {
-      window.location.href = "homepage.html";
+      window.location.href = "index.html";
     }
   </script>
+
 </body>
 </html>
