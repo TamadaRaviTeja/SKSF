@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Engine Oil - Sri Krishna Spares</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { 
+            margin:0; 
+            font-family: 'Poppins', sans-serif; 
+            background: #f0f6ff; /* Set body background to the gallery item color */
+        }
+
+        header { 
+            background: linear-gradient(to right, #003366, #0055a5); 
+            color:white; 
+            padding:1rem 2rem; 
+            display:flex; 
+            justify-content:space-between; 
+            align-items:center; 
+        }
+
+        h1 { 
+            margin:0; 
+            font-size:28px; 
+        }
+
+        .container { 
+            max-width:1200px; 
+            margin:30px auto; 
+            padding:2rem; 
+            background:white; /* Keeping the container white */
+            border-radius:20px; 
+            box-shadow:0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .search-bar { 
+            text-align: center; 
+            margin: 20px 0; 
+        }
+
+        .search-bar input {
+            width: 80%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border: 2px solid #003366;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            transition: all 0.3s ease;
+            margin-top: 20px; /* Adds space between the search bar and gallery */
+        }
+
+        .item {
+            background: white; /* Change the item background to white */
+            border-radius: 15px; 
+            padding: 15px; 
+            text-align: center; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+            min-height: 450px; 
+            transition: all 0.3s ease; 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+
+        .item img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain; /* Adjusts the image to fit inside the container */
+            border-radius: 10px;
+        }
+
+        .item h3 { 
+            margin:10px 0 5px; 
+            color:#003366; 
+        }
+
+        .item p { 
+            color:#555; 
+            margin:5px 0; 
+        }
+
+        .back-btn {
+            background: #003366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .back-btn:hover { 
+            background: #0055a5; 
+        }
+
+        .not-found {
+            text-align: center;
+            font-size: 20px;
+            color: #cc0000;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .item.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: block; /* Show the item when it matches */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Engine Oil</h1>
+    <a href="oils.html" class="back-btn">← Back to Oils</a>
+</header>
+
+<!-- Search Bar -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search Engine Oils...">
+</div>
+
+<div class="container" id="gallery-container">
+    <div class="gallery" id="gallery">
+        <div class="item">
+            <img src="Spare Parts Images/oils/Sprint 15-40W 5L.jpg" alt="Engine Oil 1">
+            <h3>Sprint 15-40W 5L</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 5L</strong></p>
+            <p><strong>Company: Veedol</strong></p>
+            <p><strong>Price: ₹1350</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/Pump Set Oil-40.jpg" alt="Engine Oil 2">
+            <h3>Pump Set Oil-40</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 3.5L</strong></p>
+            <p><strong>Company: Veedol</strong></p>
+
+            <p><strong>Price: ₹900</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/15w-40 Engine Oil.jpg" alt="Engine Oil 3">
+            <h3>15w-40 Engine Oil 1L</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 900mL</strong></p>
+            <p><strong>Company: Veedol</strong></p>
+
+            <p><strong>Price: ₹380</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/20w-40 Engine Oil.jpg" alt="Engine Oil 3">
+            <h3>20W-40 Engine Oil</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 1L</strong></p>
+                        <p><strong>Company: Veedol</strong></p>
+
+            <p><strong>Price: ₹400</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/15w-40 Engine Oil1.jpg" alt="Engine Oil 3">
+            <h3>15W-40 Engine Oil</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 1.2L</strong></p>
+            <p><strong>Company: Veedol</strong></p>
+            <p><strong>Price: ₹380</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/5W-30 Engine Oil.jpg" alt="Engine Oil 3">
+            <h3>5W-30 Engine Oil</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 3.5L</strong></p>
+            <p><strong>Company:Petronas</strong></p>
+            <p><strong>Price: ₹1850</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/15W-50 Engine Oil.jpg" alt="Engine Oil 3">
+            <h3>15W-50 Engine Oil</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 2.5L</strong></p>
+            <p><strong>Company:Petronas</strong></p>
+            <p><strong>Price: ₹500</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/15w-40 7.5 ci4.jpg" alt="Engine Oil 3">
+            <h3>15W-40 Engine Oil CI-4</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 7.5L</strong></p>
+            <p><strong>Company:Veedol</strong></p>
+            <p><strong>Price: ₹2600</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/15w-40 7.5.jpg" alt="Engine Oil 3">
+            <h3>15W-40 CH-4 Engine Oil </h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 7.5L</strong></p>
+            <p><strong>Company:Veedol</strong></p>
+            <p><strong>Price: ₹2500</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/20w-40 7.5.jpg" alt="Engine Oil 3">
+            <h3>20W-40 CH-4 Engine Oil</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 7.5L</strong></p>
+            <p><strong>Company:Veedol</strong></p>
+            <p><strong>Price: ₹2400</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Spare Parts Images/oils/15w-40 8.5.jpg" alt="Engine Oil 3">
+            <h3>15W-40 Engine Oil CI-4</h3>
+            <p>High quality synthetic oil</p>
+            <p><strong>Quantity: 8.5L</strong></p>
+            <p><strong>Company:Veedol</strong></p>
+            <p><strong>Price: ₹3200</strong></p>
+        </div>
+    </div>
+
+    <div id="notFoundMessage" class="not-found">Item Not Found</div>
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const gallery = document.getElementById('gallery');
+    const allItems = Array.from(gallery.querySelectorAll('.item'));
+    const notFoundMessage = document.getElementById('notFoundMessage');
+
+    // Initially show all items when the page loads
+    window.addEventListener('load', function() {
+        allItems.forEach(item => {
+            setTimeout(() => item.classList.add('show'), 100);
+        });
+    });
+
+    searchInput.addEventListener('input', function() {
+        const searchText = this.value.trim().toLowerCase();
+
+        // Hide all items initially
+        allItems.forEach(item => {
+            item.classList.remove('show'); // Remove the animation class
+            item.style.display = 'none';  // Hide all items initially
+        });
+
+        let matchedItems = [];
+
+        allItems.forEach(item => {
+            const title = item.querySelector('h3').innerText.toLowerCase();
+            if (title.includes(searchText)) {
+                matchedItems.push(item); // Push matched item into the array
+            }
+        });
+
+        if (matchedItems.length > 0) {
+            matchedItems.forEach(item => {
+                item.style.display = 'block';  // Show matched items
+                setTimeout(() => item.classList.add('show'), 0);  // Add show class to trigger animation
+            });
+            notFoundMessage.style.display = 'none';
+        } else {
+            notFoundMessage.style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>

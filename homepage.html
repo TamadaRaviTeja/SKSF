@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sri Krishna Spares & Fabrications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('back.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: rgba(0, 51, 102, 0.9);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .title {
+      text-align: center;
+      flex: 1;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .title h1:hover {
+      color: #ffdb4d;
+      transform: scale(1.03);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffdb4d;
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s;
+    }
+
+    .container {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      margin: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .container h2 {
+      color: #003366;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .round-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 2px 2px 20px rgba(26, 9, 214, 0.5);
+      transition: transform 0.4s ease;
+    }
+
+    .round-image:hover {
+      transform: scale(1.05);
+    }
+
+    .name {
+      font-size: 50px;
+      font-weight: 800;
+      color: #ff6347;
+      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid #ffdb4d;
+      animation: typing 4s steps(30, end) infinite, blinkCaret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; font-size: 30px; color: #0022ff; }
+      to { width: 100%; font-size: 30px; }
+    }
+
+    @keyframes blinkCaret {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .title {
+        width: 80%;
+        text-align: center;
+        order: 1;
+        margin-bottom: 10px;
+        margin-right: 30px;
+        margin-left: 25px;
+      }
+
+      .title h1 {
+        font-size: 24px;
+        background: linear-gradient(90deg, #ff4e50, #f9d423, #00c6ff, #f9d423);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: rainbow 5s infinite alternate;
+        white-space: normal;
+      }
+
+      .title h1 .break {
+        display: block;
+      }
+
+      @keyframes rainbow {
+        0% { background-position: 0%; }
+        100% { background-position: 100%; }
+      }
+
+      .hamburger {
+        display: flex;
+        order: 2;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 51, 102, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+        padding: 10px 0;
+        z-index: 999;
+        text-align: right;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .container h2 {
+        font-size: 24px;
+      }
+
+      .container p {
+        font-size: 16px;
+      }
+
+      .name {
+        font-size: 30px;
+      }
+
+      .round-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    #flash {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #28a745;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    #flash.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #loginModal {
+      display: none;
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loginModal .box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 320px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    #loginModal input {
+      width: 90%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #loginModal button {
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .loginBtn {
+      background: #003366;
+      color: #fff;
+    }
+
+    .cancelBtn {
+      background: #aaa;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="title">
+    <h1>Sri Krishna Spares <span class="break">& </span><span class="break">Fabrications</span></h1>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav id="menu">
+    <a href="about.html">About</a>
+    <a href="searchitem.html">Search Item</a>
+    <a href="contact.html">Contact</a>
+    <a href="payment.html">Payment</a>
+    <a href="#" id="authLink">Login</a>
+    <a href="#" id="logoutBtn" onclick="logoutUser()" style="display: none;">Logout</a>
+  </nav>
+
+  <div id="flash">Logged in successfully!</div>
+</header>
+
+<div class="container">
+  <h2>Welcome to Sri Krishna Spares & Fabrications</h2>
+  <p>Your trusted destination for high-quality spare parts and fabrication services.</p>
+  <p class="name">Tamada Krishna Rao</p>
+
+  <div class="image-container">
+    <img src="tractor.png" alt="Spare parts" class="round-image">
+  </div>
+
+  
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal">
+  <div class="box">
+    <h3>Login</h3>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <br>
+    <button class="loginBtn" onclick="loginUser()">Login</button>
+    <button class="cancelBtn" onclick="closeLogin()">Cancel</button>
+    <p style="margin-top:10px; font-size:14px;">(Only authorized users allowed)</p>
+  </div>
+</div>
+
+<script>
+  const VALID_EMAIL = "raviteja.tamada19189@gmail.com";
+  const VALID_PWD = "Ravi19189Teja@";
+
+  function setCookie(name, value, mins) {
+    const d = new Date();
+    d.setTime(d.getTime() + mins * 60000);
+    document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+  }
+
+  function getCookie(name) {
+    const m = document.cookie.match('(^|;)\\s*' + name + '=([^;]+)');
+    return m ? m.pop() : null;
+  }
+
+  function delCookie(name) {
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/`;
+  }
+
+  function showFlash(msg) {
+    const flash = document.getElementById("flash");
+    flash.textContent = msg;
+    flash.classList.add("show");
+    setTimeout(() => flash.classList.remove("show"), 4000);
+  }
+
+  function updateAuth() {
+    const loggedIn = getCookie("loggedIn") === "true";
+    const authLink = document.getElementById("authLink");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (loggedIn) {
+      authLink.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+    } else {
+      authLink.style.display = "inline-block";
+      logoutBtn.style.display = "none";
+    }
+  }
+
+  function openLoginModal() {
+    document.getElementById("loginModal").style.display = "flex";
+  }
+
+  function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+  function loginUser() {
+    const email = document.getElementById("loginEmail").value.trim();
+    const pass = document.getElementById("loginPassword").value.trim();
+
+    if (email === VALID_EMAIL && pass === VALID_PWD) {
+      setCookie("loggedIn", "true", 30);
+      closeLogin();
+      updateAuth();
+      showFlash("Login successful!");
+    } else {
+      alert("Invalid credentials");
+    }
+  }
+
+  function logoutUser() {
+    delCookie("loggedIn");
+    updateAuth();
+    showFlash("Logged out successfully!");
+  }
+
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+
+  function changeQuantity(val) {
+    const quantitySpan = document.getElementById("quantity");
+    let quantity = parseInt(quantitySpan.textContent);
+    quantity = Math.max(0, quantity + val);
+    quantitySpan.textContent = quantity;
+  }
+
+  // Initialize login link behavior
+  window.onload = function() {
+    updateAuth();
+    const authLink = document.getElementById("authLink");
+    authLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      openLoginModal();
+    });
+  };
+</script>
+
+</body>
+</html>

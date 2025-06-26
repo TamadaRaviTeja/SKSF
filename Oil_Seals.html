@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oil Seals | Sri Krishna Spares</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    header h1:hover {
+      color: #ffcc00;
+    }
+
+    header button {
+      background: #ffcc00;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #003366;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    header button:hover {
+      background: #e6b800;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .companies {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .company {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .company:hover {
+      background: #0055aa;
+    }
+
+    .search-bar {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 80%;
+      max-width: 400px;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: #003366;
+    }
+
+    .bearing-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bearing-list li {
+      background: white;
+      margin-bottom: 10px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .bearing-list li:hover {
+      transform: scale(1.02);
+      background-color: #eaf4ff;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quantity-controls button {
+      padding: 0.3rem 0.6rem;
+      font-size: 1.1rem;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .quantity-controls button:hover {
+      background-color: #0055aa;
+    }
+
+    .quantity-controls span {
+      min-width: 24px;
+      display: inline-block;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .search-bar input {
+        width: 95%;
+      }
+
+      .companies {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sri Krishna Spares & Fabrications - Oil Seals</h1>
+  <button onclick="goHome()">Back to Home</button>
+</header>
+
+<div class="container">
+  <div class="companies">
+    <div class="company" onclick="showCompany('swaraj')">Swaraj</div>
+    <div class="company" onclick="showCompany('mahindra')">Mahindra</div>
+    <div class="company" onclick="showCompany('sonalika')">Sonalika</div>
+    <div class="company" onclick="showCompany('jhondeer')">Jhon Deer</div>
+    <div class="company" onclick="showCompany('eicher')">Eicher</div>
+    <div class="company" onclick="showCompany('all')">ALL</div>
+
+
+
+
+
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search Belt Number..." onkeyup="filterBearings()">
+  </div>
+
+  <ul id="bearingList" class="bearing-list"></ul>
+</div>
+
+<script>
+  const bearingsData = {
+        swaraj: [
+        
+        
+        { number: 'Front Wheel 50.73.8', price: 45 },
+        { number: 'Swaraj Axle Set M77680', price: 70 },
+        { number: 'Swaraj Axle 70.90.13', price: 75 },
+        { number: 'Swaraj Front 70.6.8', price: 70 },
+        { number: 'Rear Swaraj  60.80.10', price: 40 },
+        { number: 'Brake Assy Drum 50.72.10', price: 50 },
+        { number: 'Swaraj Stearing 32.45.7', price: 35 },
+        { number: 'Swaraj PTO Shaft', price: 45 },
+        { number: 'Swaraj Bull Pinion', price: 45 },
+        { number: 'Swaraj 41.62.11', price: 45 },
+
+
+
+
+
+
+
+       
+         ],
+
+      mahindra: [
+        { number: 'Front Wheel', price: 60 },
+        { number: 'Front Wheel', price: 60 },
+        { number: 'Top Shaft Seal 45.80.10', price: 40},
+        { number: 'Front Wheel 47.70.10', price: 40 },
+        { number: 'Front Wheel MKM Rotational Type 48.75/14/17', price: 60 },
+        { number: 'Bull Pinion 162,243.46', price: 30 },
+
+        ],
+    
+        sonalika: [
+        { number: 'Front Wheel Seal Rotation 50.80.8', price: 450 },
+        { number: 'Swaraj Axle 75.95.13', price: 75 },
+
+        ],
+
+        jhondeer: [
+        { number: 'Front Wheel 60.80.13', price: 140 },
+        ],
+
+        eicher: [
+        
+        ],
+
+        
+
+        all: [
+        { number: 'Front Wheel YUVO', price: 150 },
+        { number: 'Wheel Front Sarpanch 175.290.50', price: 45 },
+        { number: 'Spindle Seal Small 34.5x44.5x9', price: 30 },
+        { number: 'Kin Pin 50.65.8', price: 85 },
+        { number: 'Front Wheel 585Di 175.290.50', price: 55 },
+        { number: 'Spindle Seal Big Kin pin Bottom 60x74.95x8.5', price: 55 },
+        { number: 'Escort Stearing ', price: 35 },
+        { number: 'Spindle Seal Powertrac ', price: 45 },
+
+        { number: 'Zetor Rear Inner', price: 50 },
+        { number: 'Zetor STG Gear', price: 45 },
+        { number: 'Rotavatory Oil Seal 65.85.16', price: 80 },
+
+        ],
+    };
+
+  let currentCompany = '';
+
+  function showCompany(company) {
+    currentCompany = company;
+    const bearingList = document.getElementById('bearingList');
+    bearingList.innerHTML = '';
+
+    bearingsData[company].forEach((item, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span>${item.number} - ₹${item.price}</span>
+        <div class="quantity-controls">
+          <button onclick="decrement(${index})">−</button>
+          <span id="qty-${index}">0</span>
+          <button onclick="increment(${index})">+</button>
+        </div>
+      `;
+      bearingList.appendChild(li);
+    });
+
+    document.getElementById('searchInput').value = '';
+  }
+
+  function filterBearings() {
+    const input = document.getElementById('searchInput').value.toUpperCase();
+    const ul = document.getElementById('bearingList');
+    const li = ul.getElementsByTagName('li');
+    let found = false;
+
+    for (let i = 0; i < li.length; i++) {
+      const txtValue = li[i].textContent || li[i].innerText;
+      if (txtValue.toUpperCase().indexOf(input) > -1) {
+        li[i].style.display = "";
+        found = true;
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+
+    let notFoundMsg = document.getElementById('notFoundMsg');
+    if (!found) {
+      if (!notFoundMsg) {
+        notFoundMsg = document.createElement('li');
+        notFoundMsg.id = 'notFoundMsg';
+        notFoundMsg.style.color = 'red';
+        notFoundMsg.style.fontWeight = 'bold';
+        notFoundMsg.style.textAlign = 'center';
+        notFoundMsg.style.padding = '1rem';
+        ul.appendChild(notFoundMsg);
+      }
+      notFoundMsg.textContent = "Item not found in this store or item sold out.";
+    } else {
+      if (notFoundMsg) {
+        notFoundMsg.remove();
+      }
+    }
+  }
+
+  function increment(index) {
+    const qty = document.getElementById(`qty-${index}`);
+    qty.textContent = parseInt(qty.textContent) + 1;
+  }
+
+  function decrement(index) {
+    const qty = document.getElementById(`qty-${index}`);
+    const value = parseInt(qty.textContent);
+    if (value > 0) {
+      qty.textContent = value - 1;
+    }
+  }
+
+  function goHome() {
+    window.location.href = "homepage.html";
+  }
+</script>
+
+</body>
+</html>

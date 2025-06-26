@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment | Sri Krishna Spares and Fabrications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e0f2f1);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    h1:hover {
+      color: #ffeb3b;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      margin: 4rem auto;
+      max-width: 960px;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container h2 {
+      font-size: 2.4rem;
+      color: #003366;
+      margin-bottom: 2rem;
+    }
+
+    .qr-code {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .qr-code img {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      border: 4px solid #003366;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .qr-code img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00c853;
+    }
+
+    .bank-details {
+      font-size: 1.1rem;
+      color: #004d40;
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .bank-details span {
+      font-weight: 600;
+    }
+
+    .payment-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .payment-option {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 16px;
+      text-align: center;
+      width: 160px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .payment-option:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .payment-option img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .payment-option p {
+      color: #003366;
+      font-weight: 600;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .container h2 {
+        font-size: 2rem;
+      }
+
+      .qr-code img {
+        width: 160px;
+        height: 160px;
+      }
+
+      .payment-option {
+        width: 140px;
+      }
+
+      .payment-option img {
+        width: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin: 2rem 1rem;
+        padding: 2rem 1rem;
+      }
+
+      nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .qr-code img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .payment-option {
+        width: 120px;
+      }
+
+      .payment-option img {
+        width: 50px;
+      }
+
+      .container h2 {
+        font-size: 1.6rem;
+      }
+
+      .bank-details {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sri Krishna Spares & Fabrications</h1>
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="searchitem.html">Search Item</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Secure Payment Methods</h2>
+
+  <div class="qr-code">
+    <img src="phonepayqr.jpg" alt="PhonePe QR">
+    <img src="yonoqr.jpg" alt="YONO QR">
+  </div>
+
+  <p class="bank-details">
+    Scan any QR code to pay directly, or choose your preferred method below:
+  </p>
+
+  <div class="payment-options">
+    <div class="payment-option">
+      <img src="phonepe-icon.png" alt="PhonePe" />
+      <p>PhonePe<br><strong>8249161345</strong></p>
+    </div>
+    <div class="payment-option">
+      <img src="google-pay-icon.png" alt="Google Pay" />
+      <p>Google Pay<br><strong>8249161345</strong></p>
+    </div>
+    <div class="payment-option">
+      <img src="upi.png" alt="YONO UPI" />
+      <p>YONO UPI<br><strong>8249161345@ybl</strong></p>
+    </div>
+  </div>
+
+  <p class="bank-details" style="margin-top: 2rem;">
+    <span>Bank Name:</span> State Bank Of India<br>
+    <span>Account Name:</span> Tamada Ravi Teja<br>
+    <span>Account Number:</span> 35553172459<br>
+    <span>IFSC Code:</span> SBIN0012117<br>
+    <span>Branch:</span> Kashinagar Branch
+  </p>
+</div>
+
+</body>
+</html>

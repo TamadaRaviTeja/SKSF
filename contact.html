@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Sri Krishna Spares</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #f0f4f8, #e4edf7);
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #0055a5);
+      color: white;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .back-btn {
+      background: #ffdb4d;
+      color: #003366;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #ffc107;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 4px solid #003366;
+      background: #f9fbfd;
+      border-radius: 10px;
+    }
+
+    .contact-section h2 {
+      color: #003366;
+      font-size: 22px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-section h2::before {
+      content: "📍";
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    .contact-section a {
+      color: #0055a5;
+      text-decoration: none;
+    }
+
+    .contact-section a:hover {
+      text-decoration: underline;
+    }
+
+    address {
+      font-style: normal;
+      line-height: 1.8;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      margin: 6px 0;
+    }
+
+    .map-container {
+      margin-top: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .container {
+        margin: 20px;
+        padding: 1.5rem;
+      }
+
+      iframe {
+        height: 300px;
+      }
+
+      .contact-section h2 {
+        font-size: 20px;
+      }
+
+      .contact-info p {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      .back-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .contact-section h2 {
+        font-size: 18px;
+      }
+
+      iframe {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Contact Us</h1>
+  <a href="homepage.html" class="back-btn">← Back to Home</a>
+</header>
+
+<div class="container">
+  <div class="contact-info">
+
+    <div class="contact-section">
+      <h2>Get in Touch</h2>
+      <p><strong>Email:</strong> 
+        <a href="mailto:raviteja.tamada19189@gmail.com">raviteja.tamada19189@gmail.com</a>
+      </p>
+      <p><strong>Phone:</strong> 
+        <a href="tel:+918249161345">8249161345</a> | 
+        <a href="tel:+918249049400">8249049400</a> | 
+        <a href="tel:+917064885544">7064885544</a>
+      </p>
+    </div>
+
+    <div class="contact-section">
+      <h2>Visit Our Shop</h2>
+      <address>
+        Sri Krishna Spares and Fabrications<br>
+        Kalam Junction 1, Gunupur Road,<br>
+        Near State Bank Of India,<br>
+        Kashinagar, Gajapati District,<br>
+        Odisha - 761206, India
+      </address>
+    </div>
+
+    <div class="contact-section">
+      <h2>Location Map</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d83.2149062!3d18.8693458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3c87179b58e25f%3A0xb70e76c5c4b254d4!2sSri%20Krishna%20Spares%20and%20Fabrications%2C%20Kashinagar%2C%20Odisha%20761206!5e0!3m2!1sen!2sin!4v1683100000000!5m2!1sen!2sin" 
+          allowfullscreen 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <h2>Working Hours</h2>
+      <p><strong>Monday to Saturday:</strong> 8:00 AM – 6:30 PM</p>
+      <p><strong>Sunday:</strong> 8:00 AM – 1:00 PM</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

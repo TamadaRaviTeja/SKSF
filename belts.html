@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belts List | Sri Krishna Spares</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    header h1:hover {
+      color: #ffcc00;
+    }
+
+    header button {
+      background: #ffcc00;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #003366;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    header button:hover {
+      background: #e6b800;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .companies {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .company {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .company:hover {
+      background: #0055aa;
+    }
+
+    .search-bar {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 80%;
+      max-width: 400px;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: #003366;
+    }
+
+    .bearing-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bearing-list li {
+      background: white;
+      margin-bottom: 10px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .bearing-list li:hover {
+      transform: scale(1.02);
+      background-color: #eaf4ff;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quantity-controls button {
+      padding: 0.3rem 0.6rem;
+      font-size: 1.1rem;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .quantity-controls button:hover {
+      background-color: #0055aa;
+    }
+
+    .quantity-controls span {
+      min-width: 24px;
+      display: inline-block;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .search-bar input {
+        width: 95%;
+      }
+
+      .companies {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sri Krishna Spares & Fabrications - Belts List</h1>
+  <button onclick="goHome()">Back to Home</button>
+</header>
+
+<div class="container">
+  <div class="companies">
+    <div class="company" onclick="showCompany('standardvbelt')">Standard V Belt</div>
+    <div class="company" onclick="showCompany('coggedvbelt')">Cogged V Belt</div>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search Belt Number..." onkeyup="filterBearings()">
+  </div>
+
+  <ul id="bearingList" class="bearing-list"></ul>
+</div>
+
+<script>
+  const bearingsData = {
+        standardvbelt: [
+        
+        
+        { number: 'A-32', price: 120 },
+        { number: 'A-33', price: 125 },
+        { number: 'A-34', price: 130 },
+        { number: 'A-35', price: 135 },
+        { number: 'A-36', price: 140 },
+        { number: 'A-37', price: 145 },
+
+
+        { number: 'B-30', price: 150 },
+        { number: 'B-31', price: 150 },
+        { number: 'B-32', price: 160 },
+        { number: 'B-33', price: 160 },
+        { number: 'B-34', price: 170 },
+        { number: 'B-35', price: 170 },
+        { number: 'B-36', price: 180 },
+        { number: 'B-37', price: 180},
+        { number: 'B-39', price: 190 },
+
+        { number: 'B-40', price: 200 },
+        { number: 'B-41', price: 200 },
+        { number: 'B-42', price: 210 },
+        { number: 'B-46', price: 210 },
+        
+        { number: 'B-51', price: 250 },
+        { number: 'B-52', price: 250 },
+        { number: 'B-53', price: 250 },
+        { number: 'B-54', price: 250 },
+        { number: 'B-55', price: 250 },
+        { number: 'B-56', price: 250 },
+        { number: 'B-57', price: 250 },
+
+       
+        { number: 'B-74', price: 300 },
+        { number: 'B-76', price: 300 },
+        { number: 'B-76', price: 300 },
+        { number: 'B-77', price: 300 },
+        { number: 'B-78', price: 300 },
+        { number: 'B-80', price: 350 },
+
+
+
+
+
+      ],
+      coggedvbelt: [
+        { number: 'TRK-1290 SWARAJ-885', price: 450 },
+        { number: 'TRK-1240 SWARAJ/ESCORT/ZETOR', price: 400 },
+        { number: 'Mahindra 4 Cylinder', price: 365 },
+        { number: 'AV10 X 1085 EICHER MOTORS', price: 250 },
+        { number: 'TW-1185 TATA MOTORS', price: 310 },
+        { number: 'TRK-895 INTERNATIONAL W/P', price: 275 },
+        { number: 'ML-900 KIRLOSKAR CUMMINS', price: 245 },
+        { number: 'TRE-835 INTERNATIONAL BELT GENRATOR WP/ALT', price: 185 },
+        { number: 'SNX-258 ', price: 450 },
+        { number: 'V13 X 1060 ', price: 380 },
+        { number: 'TK-1189 SONALIKA 750/ZETOR', price: 300 },
+        { number: 'SIX-272 ', price: 250 },
+        { number: 'AVX 13 X 1060 ', price: 230 },
+        { number: 'xA-835 MAHINDRA ', price: 165 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      ]
+    };
+
+  let currentCompany = '';
+
+  function showCompany(company) {
+    currentCompany = company;
+    const bearingList = document.getElementById('bearingList');
+    bearingList.innerHTML = '';
+
+    bearingsData[company].forEach((item, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span>${item.number} - ₹${item.price}</span>
+        <div class="quantity-controls">
+          <button onclick="decrement(${index})">−</button>
+          <span id="qty-${index}">0</span>
+          <button onclick="increment(${index})">+</button>
+        </div>
+      `;
+      bearingList.appendChild(li);
+    });
+
+    document.getElementById('searchInput').value = '';
+  }
+
+  function filterBearings() {
+    const input = document.getElementById('searchInput').value.toUpperCase();
+    const ul = document.getElementById('bearingList');
+    const li = ul.getElementsByTagName('li');
+    let found = false;
+
+    for (let i = 0; i < li.length; i++) {
+      const txtValue = li[i].textContent || li[i].innerText;
+      if (txtValue.toUpperCase().indexOf(input) > -1) {
+        li[i].style.display = "";
+        found = true;
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+
+    let notFoundMsg = document.getElementById('notFoundMsg');
+    if (!found) {
+      if (!notFoundMsg) {
+        notFoundMsg = document.createElement('li');
+        notFoundMsg.id = 'notFoundMsg';
+        notFoundMsg.style.color = 'red';
+        notFoundMsg.style.fontWeight = 'bold';
+        notFoundMsg.style.textAlign = 'center';
+        notFoundMsg.style.padding = '1rem';
+        ul.appendChild(notFoundMsg);
+      }
+      notFoundMsg.textContent = "Item not found in this store or item sold out.";
+    } else {
+      if (notFoundMsg) {
+        notFoundMsg.remove();
+      }
+    }
+  }
+
+  function increment(index) {
+    const qty = document.getElementById(`qty-${index}`);
+    qty.textContent = parseInt(qty.textContent) + 1;
+  }
+
+  function decrement(index) {
+    const qty = document.getElementById(`qty-${index}`);
+    const value = parseInt(qty.textContent);
+    if (value > 0) {
+      qty.textContent = value - 1;
+    }
+  }
+
+  function goHome() {
+    window.location.href = "homepage.html";
+  }
+</script>
+
+</body>
+</html>
