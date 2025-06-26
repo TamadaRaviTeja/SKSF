@@ -1,157 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Diesel Filter</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body { 
-            margin:0; 
-            font-family: 'Poppins', sans-serif; 
-            background: #f0f6ff; /* Set body background to the gallery item color */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lights | Sri Krishna Spares</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f0f6ff;
+    }
 
-        header { 
-            background: linear-gradient(to right, #003366, #0055a5); 
-            color:white; 
-            padding:1rem 2rem; 
-            display:flex; 
-            justify-content:space-between; 
-            align-items:center; 
-        }
+    header {
+      background: linear-gradient(to right, #003366, #0055a5);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-        h1 { 
-            margin:0; 
-            font-size:28px; 
-        }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
 
-        .container { 
-            max-width:1200px; 
-            margin:30px auto; 
-            padding:2rem; 
-            background:white; /* Keeping the container white */
-            border-radius:20px; 
-            box-shadow:0 8px 16px rgba(0,0,0,0.2);
-        }
+    .back-btn {
+      background: #003366;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
 
-        .search-bar { 
-            text-align: center; 
-            margin: 20px 0; 
-        }
+    .back-btn:hover {
+      background: #0055a5;
+    }
 
-        .search-bar input {
-            width: 80%;
-            max-width: 500px;
-            padding: 12px 20px;
-            border: 2px solid #003366;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            transition: all 0.3s ease;
-            margin-top: 20px; /* Adds space between the search bar and gallery */
-        }
+    .search-bar {
+      text-align: center;
+      margin: 20px 0;
+    }
 
-        .item {
-            background: white; /* Change the item background to white */
-            border-radius: 15px; 
-            padding: 15px; 
-            text-align: center; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
-            min-height: 450px; 
-            transition: all 0.3s ease; 
-            opacity: 0; 
-            transform: translateY(20px); 
-        }
+    .search-bar input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px 20px;
+      border: 2px solid #003366;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
 
-        .item img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain; /* Adjusts the image to fit inside the container */
-            border-radius: 10px;
-        }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-        .item h3 { 
-            margin:10px 0 5px; 
-            color:#003366; 
-        }
+    .item {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      min-height: 450px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-        .item p { 
-            color:#555; 
-            margin:5px 0; 
-        }
+    .item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .back-btn {
-            background: #003366;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            margin-top: 20px;
-            display: inline-block;
-            text-decoration: none;
-        }
+    .item img {
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
 
-        .back-btn:hover { 
-            background: #0055a5; 
-        }
+    .item h3 {
+      margin: 10px 0 5px;
+      color: #003366;
+    }
 
-        .not-found {
-            text-align: center;
-            font-size: 20px;
-            color: #cc0000;
-            margin-top: 30px;
-            display: none;
-        }
+    .item p {
+      color: #555;
+      margin: 5px 0;
+    }
 
-        .item.show {
-            opacity: 1;
-            transform: translateY(0);
-            display: block; /* Show the item when it matches */
-        }
-    </style>
+    .not-found {
+      text-align: center;
+      font-size: 20px;
+      color: #cc0000;
+      margin-top: 30px;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .back-btn {
+        margin-top: 10px;
+      }
+
+      .item {
+        min-height: auto;
+      }
+
+      .item img {
+        height: 180px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Diesel Filter</h1>
-    <a href="filters.html" class="back-btn">← Back to Filters</a>
+  <h1>Lights & Bulbs</h1>
+  <a href="searchitem.html" class="back-btn">← Back to Menu</a>
 </header>
 
-<!-- Search Bar -->
 <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search Engine Oils...">
+  <input type="text" id="searchInput" placeholder="Search Lights...">
 </div>
 
-<div class="container" id="gallery-container">
-    <div class="gallery" id="gallery">
-        <div class="item">
-            <img src="Spare Parts Images\Lights\Night Vision Light.jpg" alt="Engine Oil 1">
-            <h3>24 Led Night Vision</h3>
-            <p>High quality Led Light</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: Night Vision Automatic Light</strong></p>
-            <p><strong>Price: ₹680</strong></p>
-        </div>
+<div class="container">
+  <div class="gallery" id="gallery">
+    <!-- Example Item (repeat as needed) -->
+    <div class="item">
+      <img src="Night Vision Light.jpg" alt="Night Vision Light">
+      <h3>24 Led Night Vision</h3>
+      <p>High quality LED light</p>
+      <p><strong>Quantity:</strong> 1 Piece</p>
+      <p><strong>Company:</strong> Night Vision Automatic</p>
+      <p><strong>Price:</strong> ₹680</p>
+    </div>
+
+    <div class="item">
+      <img src="Swaraj 885 Parking Light -Right.jpg" alt="Parking Light Right">
+      <h3>Swaraj 855 Parking Light - Right</h3>
+      <p>High quality light</p>
+      <p><strong>Quantity:</strong> 1 Piece</p>
+      <p><strong>Company:</strong> Ishan Industries</p>
+      <p><strong>Side:</strong> Right</p>
+      <p><strong>Price:</strong> ₹370</p>
+    </div>
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Swaraj 885 Parking Light -Right.jpg" alt="Engine Oil 2">
-            <h3>Swaraj 855 Parking Light - Right</h3>
-            <p>High quality Lights</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: Ishan Industries</strong></p>
-            <p><strong>Side: Right</strong></p>
-
-            <p><strong>Price: ₹370</strong></p>
-        </div>
-
-        <div class="item">
-            <img src="Spare Parts Images\Lights\Swaraj 885 Parking Light -left.jpg" alt="Engine Oil 2">
+            <img src="Swaraj 885 Parking Light -left.jpg" alt="Engine Oil 2">
             <h3>Swaraj 855 Parking Light - Left</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -163,7 +181,7 @@
         
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Swaraj 885 Tail Light - left.jpg" alt="Engine Oil 2">
+            <img src="Swaraj 885 Tail Light - left.jpg" alt="Engine Oil 2">
             <h3>Swaraj 855 Tail Light - Left</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -174,7 +192,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Swaraj 885 Tail Light - Right.jpg" alt="">
+            <img src="Swaraj 885 Tail Light - Right.jpg" alt="">
             <h3>Swaraj 855 Tail Light - Right</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -185,18 +203,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Swaraj 744 Tail Light - Left.jpg" alt="">
-            <h3>Swaraj 744 Tail Light - Left</h3>
-            <p>High quality Lights</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: Ishan Industries</strong></p>
-            <p><strong>Side: Left</strong></p>
-
-            <p><strong>Price: ₹445</strong></p>
-        </div>
-
-        <div class="item">
-            <img src="Spare Parts Images\Lights\Swaraj 744 Tail Light - Right.jpg" alt="">
+            <img src="swaraj tail light 744 right.jpg" alt="">
             <h3>Swaraj 744 Tail Light - Right</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -207,7 +214,19 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Tail Lamp Assembly Sonalika.jpg" alt="">
+            <img src="Swaraj 744 Tail Light - Left.jpg" alt="">
+            <h3>Swaraj 744 Tail Light - Left</h3>
+            <p>High quality Lights</p>
+            <p><strong>Quantity: 1 Piece</strong></p>
+            <p><strong>Company: Ishan Industries</strong></p>
+            <p><strong>Side: Left</strong></p>
+            <p><strong>Price: ₹445</strong></p>
+        </div>
+
+        
+
+        <div class="item">
+            <img src="Tail Lamp Assembly Sonalika.jpg" alt="">
             <h3>Tail Lamp Assembly Sonalika/Swaraj 855 - LEFT</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -220,7 +239,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Side Lamp Aaembly Sonalika -Eicher-JD-Arjun.jpg" alt="">
+            <img src="Side Lamp Aaembly Sonalika -Eicher-JD-Arjun.jpg" alt="">
             <h3>Side Lamp Aaembly Sonalika -Eicher-JD-Arjun</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 2 Piece</strong></p>
@@ -231,7 +250,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\Lights\Back Light Asembly.jpg" alt="">
+            <img src="Back Light Asembly.jpg" alt="">
             <h3>Back Light Asembly</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -241,7 +260,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\lIGHTS\Side-Tail Light Assembly.jpg" alt="">
+            <img src="Side-Tail Light Assembly.jpg" alt="">
             <h3>Side-Tail Light Assembly</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -251,7 +270,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\lIGHTS\Spot Lamps.jpg" alt="">
+            <img src="Spot Lamps.jpg" alt="">
             <h3>Spot Lamps 85MM</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -260,7 +279,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\lIGHTS\Spot Lamps 110MM.jpg" alt="">
+            <img src="Spot Lamps 110MM.jpg" alt="">
             <h3>Spot Lamps 110MM</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -270,7 +289,7 @@
         </div>
 
         <div class="item">
-            <img src="Spare Parts Images\lIGHTS\Head Light.jpg" alt="">
+            <img src="Head Light.jpg" alt="">
             <h3>Head Light Swaraj</h3>
             <p>High quality Lights</p>
             <p><strong>Quantity: 1 Piece</strong></p>
@@ -279,54 +298,41 @@
 
         </div>
 
-        
-        
-    </div>
 
-    <div id="notFoundMessage" class="not-found">Item Not Found</div>
+  </div>
+  <div id="notFoundMessage" class="not-found">Item Not Found</div>
 </div>
 
 <script>
-    const searchInput = document.getElementById('searchInput');
-    const gallery = document.getElementById('gallery');
-    const allItems = Array.from(gallery.querySelectorAll('.item'));
-    const notFoundMessage = document.getElementById('notFoundMessage');
+  const searchInput = document.getElementById('searchInput');
+  const gallery = document.getElementById('gallery');
+  const allItems = Array.from(gallery.querySelectorAll('.item'));
+  const notFoundMessage = document.getElementById('notFoundMessage');
 
-    // Initially show all items when the page loads
-    window.addEventListener('load', function() {
-        allItems.forEach(item => {
-            setTimeout(() => item.classList.add('show'), 100);
-        });
+  window.addEventListener('load', () => {
+    allItems.forEach(item => {
+      setTimeout(() => item.classList.add('show'), 100);
+    });
+  });
+
+  searchInput.addEventListener('input', function () {
+    const searchText = this.value.trim().toLowerCase();
+    let matches = 0;
+
+    allItems.forEach(item => {
+      const title = item.querySelector('h3').innerText.toLowerCase();
+      const visible = title.includes(searchText);
+      item.style.display = visible ? 'block' : 'none';
+      if (visible) {
+        matches++;
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
     });
 
-    searchInput.addEventListener('input', function() {
-        const searchText = this.value.trim().toLowerCase();
-
-        // Hide all items initially
-        allItems.forEach(item => {
-            item.classList.remove('show'); // Remove the animation class
-            item.style.display = 'none';  // Hide all items initially
-        });
-
-        let matchedItems = [];
-
-        allItems.forEach(item => {
-            const title = item.querySelector('h3').innerText.toLowerCase();
-            if (title.includes(searchText)) {
-                matchedItems.push(item); // Push matched item into the array
-            }
-        });
-
-        if (matchedItems.length > 0) {
-            matchedItems.forEach(item => {
-                item.style.display = 'block';  // Show matched items
-                setTimeout(() => item.classList.add('show'), 0);  // Add show class to trigger animation
-            });
-            notFoundMessage.style.display = 'none';
-        } else {
-            notFoundMessage.style.display = 'block';
-        }
-    });
+    notFoundMessage.style.display = matches === 0 ? 'block' : 'none';
+  });
 </script>
 
 </body>
