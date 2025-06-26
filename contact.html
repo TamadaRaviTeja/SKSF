@@ -29,12 +29,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: nowrap;
     }
 
-    h1 {
-      margin: 0;
+    .header-title {
       font-size: 28px;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .back-btn {
@@ -117,9 +118,13 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
+      .header-title {
+        font-size: 22px;
+      }
+
+      .back-btn {
+        font-size: 14px;
+        padding: 8px 14px;
       }
 
       .container {
@@ -141,13 +146,13 @@
     }
 
     @media (max-width: 480px) {
-      h1 {
-        font-size: 22px;
+      .header-title {
+        font-size: 20px;
       }
 
       .back-btn {
-        font-size: 14px;
-        padding: 8px 16px;
+        font-size: 13px;
+        padding: 7px 12px;
       }
 
       .contact-section h2 {
@@ -163,57 +168,57 @@
 
 <body>
 
-<header>
-  <h1>Contact Us</h1>
-  <a href="homepage.html" class="back-btn">← Back to Home</a>
-</header>
+  <header>
+    <div class="header-title">Contact Us</div>
+    <a href="homepage.html" class="back-btn">← Back to Home</a>
+  </header>
 
-<div class="container">
-  <div class="contact-info">
+  <div class="container">
+    <div class="contact-info">
 
-    <div class="contact-section">
-      <h2>Get in Touch</h2>
-      <p><strong>Email:</strong> 
-        <a href="mailto:raviteja.tamada19189@gmail.com">raviteja.tamada19189@gmail.com</a>
-      </p>
-      <p><strong>Phone:</strong> 
-        <a href="tel:+918249161345">8249161345</a> | 
-        <a href="tel:+918249049400">8249049400</a> | 
-        <a href="tel:+917064885544">7064885544</a>
-      </p>
-    </div>
-
-    <div class="contact-section">
-      <h2>Visit Our Shop</h2>
-      <address>
-        Sri Krishna Spares and Fabrications<br>
-        Kalam Junction 1, Gunupur Road,<br>
-        Near State Bank Of India,<br>
-        Kashinagar, Gajapati District,<br>
-        Odisha - 761206, India
-      </address>
-    </div>
-
-    <div class="contact-section">
-      <h2>Location Map</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d83.2149062!3d18.8693458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3c87179b58e25f%3A0xb70e76c5c4b254d4!2sSri%20Krishna%20Spares%20and%20Fabrications%2C%20Kashinagar%2C%20Odisha%20761206!5e0!3m2!1sen!2sin!4v1683100000000!5m2!1sen!2sin" 
-          allowfullscreen 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div class="contact-section">
+        <h2>Get in Touch</h2>
+        <p><strong>Email:</strong> 
+          <a href="mailto:raviteja.tamada19189@gmail.com">raviteja.tamada19189@gmail.com</a>
+        </p>
+        <p><strong>Phone:</strong> 
+          <a href="tel:+918249161345">8249161345</a> | 
+          <a href="tel:+918249049400">8249049400</a> | 
+          <a href="tel:+917064885544">7064885544</a>
+        </p>
       </div>
-    </div>
 
-    <div class="contact-section">
-      <h2>Working Hours</h2>
-      <p><strong>Monday to Saturday:</strong> 8:00 AM – 6:30 PM</p>
-      <p><strong>Sunday:</strong> 8:00 AM – 1:00 PM</p>
-    </div>
+      <div class="contact-section">
+        <h2>Visit Our Shop</h2>
+        <address>
+          Sri Krishna Spares and Fabrications<br>
+          Kalam Junction 1, Gunupur Road,<br>
+          Near State Bank Of India,<br>
+          Kashinagar, Gajapati District,<br>
+          Odisha - 761206, India
+        </address>
+      </div>
 
+      <div class="contact-section">
+        <h2>Location Map</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d83.2149062!3d18.8693458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3c87179b58e25f%3A0xb70e76c5c4b254d4!2sSri%20Krishna%20Spares%20and%20Fabrications%2C%20Kashinagar%2C%20Odisha%20761206!5e0!3m2!1sen!2sin!4v1683100000000!5m2!1sen!2sin" 
+            allowfullscreen 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h2>Working Hours</h2>
+        <p><strong>Monday to Saturday:</strong> 8:00 AM – 6:30 PM</p>
+        <p><strong>Sunday:</strong> 8:00 AM – 1:00 PM</p>
+      </div>
+
+    </div>
   </div>
-</div>
 
 </body>
 </html>
