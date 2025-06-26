@@ -171,8 +171,35 @@
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 18px;
         text-align: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      nav a {
+        background-color: yellow;
+        color: #003366;
+        font-weight: 700;
+        border: 2px solid #003366;
+        width: 40%;
+        text-align: center;
+        border-radius: 10px;
+        padding: 0.4rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+
+      nav a:active {
+        background-color: #ffe066;
+        transform: scale(0.97);
       }
 
       .container h2 {
@@ -199,19 +226,13 @@
         padding: 2rem 1rem;
       }
 
-      nav {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
       .qr-code img {
         width: 140px;
         height: 140px;
       }
 
       .payment-option {
-        width: 120px;
+        width: 170px;
       }
 
       .payment-option img {
@@ -233,7 +254,7 @@
 <header>
   <h1>Sri Krishna Spares & Fabrications</h1>
   <nav>
-    <a href="homepage.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="searchitem.html">Search Item</a>
     <a href="contact.html">Contact</a>
   </nav>
