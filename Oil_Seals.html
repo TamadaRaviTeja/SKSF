@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oil Seals | Sri Krishna Spares</title>
   <style>
     body {
@@ -19,6 +19,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
@@ -51,7 +52,7 @@
 
     .container {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 1200px;
       margin: auto;
     }
 
@@ -83,7 +84,7 @@
     }
 
     .search-bar input {
-      width: 80%;
+      width: 90%;
       max-width: 400px;
       padding: 0.7rem;
       font-size: 1rem;
@@ -125,6 +126,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      margin-top: 10px;
     }
 
     .quantity-controls button {
@@ -148,20 +150,53 @@
       font-weight: bold;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
+    #notFoundMsg {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      padding: 1rem;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
       header {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
+        text-align: left;
       }
 
-      .search-bar input {
-        width: 95%;
+      header h1 {
+        font-size: 1.4rem;
+        text-align: left;
       }
 
-      .companies {
+      .company {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .bearing-list li {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .quantity-controls {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .companies{
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        width:100%;
+      }
+      .company{
+        width:15%;
+        display: flex;
         align-items: center;
+        justify-content: center;
+
+
       }
     }
   </style>
@@ -169,7 +204,7 @@
 <body>
 
 <header>
-  <h1>Sri Krishna Spares & Fabrications - Oil Seals</h1>
+  <h1>Oil Seals</h1>
   <button onclick="goHome()">Back to Home</button>
 </header>
 
@@ -181,11 +216,6 @@
     <div class="company" onclick="showCompany('jhondeer')">Jhon Deer</div>
     <div class="company" onclick="showCompany('eicher')">Eicher</div>
     <div class="company" onclick="showCompany('all')">ALL</div>
-
-
-
-
-
   </div>
 
   <div class="search-bar">
@@ -197,71 +227,48 @@
 
 <script>
   const bearingsData = {
-        swaraj: [
-        
-        
-        { number: 'Front Wheel 50.73.8', price: 45 },
-        { number: 'Swaraj Axle Set M77680', price: 70 },
-        { number: 'Swaraj Axle 70.90.13', price: 75 },
-        { number: 'Swaraj Front 70.6.8', price: 70 },
-        { number: 'Rear Swaraj  60.80.10', price: 40 },
-        { number: 'Brake Assy Drum 50.72.10', price: 50 },
-        { number: 'Swaraj Stearing 32.45.7', price: 35 },
-        { number: 'Swaraj PTO Shaft', price: 45 },
-        { number: 'Swaraj Bull Pinion', price: 45 },
-        { number: 'Swaraj 41.62.11', price: 45 },
-
-
-
-
-
-
-
-       
-         ],
-
-      mahindra: [
-        { number: 'Front Wheel', price: 60 },
-        { number: 'Front Wheel', price: 60 },
-        { number: 'Top Shaft Seal 45.80.10', price: 40},
-        { number: 'Front Wheel 47.70.10', price: 40 },
-        { number: 'Front Wheel MKM Rotational Type 48.75/14/17', price: 60 },
-        { number: 'Bull Pinion 162,243.46', price: 30 },
-
-        ],
-    
-        sonalika: [
-        { number: 'Front Wheel Seal Rotation 50.80.8', price: 450 },
-        { number: 'Swaraj Axle 75.95.13', price: 75 },
-
-        ],
-
-        jhondeer: [
-        { number: 'Front Wheel 60.80.13', price: 140 },
-        ],
-
-        eicher: [
-        
-        ],
-
-        
-
-        all: [
-        { number: 'Front Wheel YUVO', price: 150 },
-        { number: 'Wheel Front Sarpanch 175.290.50', price: 45 },
-        { number: 'Spindle Seal Small 34.5x44.5x9', price: 30 },
-        { number: 'Kin Pin 50.65.8', price: 85 },
-        { number: 'Front Wheel 585Di 175.290.50', price: 55 },
-        { number: 'Spindle Seal Big Kin pin Bottom 60x74.95x8.5', price: 55 },
-        { number: 'Escort Stearing ', price: 35 },
-        { number: 'Spindle Seal Powertrac ', price: 45 },
-
-        { number: 'Zetor Rear Inner', price: 50 },
-        { number: 'Zetor STG Gear', price: 45 },
-        { number: 'Rotavatory Oil Seal 65.85.16', price: 80 },
-
-        ],
-    };
+    swaraj: [
+      { number: 'Front Wheel 50.73.8', price: 45 },
+      { number: 'Swaraj Axle Set M77680', price: 70 },
+      { number: 'Swaraj Axle 70.90.13', price: 75 },
+      { number: 'Swaraj Front 70.6.8', price: 70 },
+      { number: 'Rear Swaraj  60.80.10', price: 40 },
+      { number: 'Brake Assy Drum 50.72.10', price: 50 },
+      { number: 'Swaraj Stearing 32.45.7', price: 35 },
+      { number: 'Swaraj PTO Shaft', price: 45 },
+      { number: 'Swaraj Bull Pinion', price: 45 },
+      { number: 'Swaraj 41.62.11', price: 45 },
+    ],
+    mahindra: [
+      { number: 'Front Wheel', price: 60 },
+      { number: 'Front Wheel', price: 60 },
+      { number: 'Top Shaft Seal 45.80.10', price: 40 },
+      { number: 'Front Wheel 47.70.10', price: 40 },
+      { number: 'Front Wheel MKM Rotational Type 48.75/14/17', price: 60 },
+      { number: 'Bull Pinion 162,243.46', price: 30 },
+    ],
+    sonalika: [
+      { number: 'Front Wheel Seal Rotation 50.80.8', price: 450 },
+      { number: 'Swaraj Axle 75.95.13', price: 75 },
+    ],
+    jhondeer: [
+      { number: 'Front Wheel 60.80.13', price: 140 },
+    ],
+    eicher: [],
+    all: [
+      { number: 'Front Wheel YUVO', price: 150 },
+      { number: 'Wheel Front Sarpanch 175.290.50', price: 45 },
+      { number: 'Spindle Seal Small 34.5x44.5x9', price: 30 },
+      { number: 'Kin Pin 50.65.8', price: 85 },
+      { number: 'Front Wheel 585Di 175.290.50', price: 55 },
+      { number: 'Spindle Seal Big Kin pin Bottom 60x74.95x8.5', price: 55 },
+      { number: 'Escort Stearing ', price: 35 },
+      { number: 'Spindle Seal Powertrac ', price: 45 },
+      { number: 'Zetor Rear Inner', price: 50 },
+      { number: 'Zetor STG Gear', price: 45 },
+      { number: 'Rotavatory Oil Seal 65.85.16', price: 80 },
+    ]
+  };
 
   let currentCompany = '';
 
@@ -275,15 +282,15 @@
       li.innerHTML = `
         <span>${item.number} - ₹${item.price}</span>
         <div class="quantity-controls">
-          <button onclick="decrement(${index})">−</button>
+          <button onclick="decrement(${index})">&minus;</button>
           <span id="qty-${index}">0</span>
           <button onclick="increment(${index})">+</button>
-        </div>
-      `;
+        </div>`;
       bearingList.appendChild(li);
     });
 
     document.getElementById('searchInput').value = '';
+    document.getElementById('notFoundMsg')?.remove();
   }
 
   function filterBearings() {
@@ -302,22 +309,15 @@
       }
     }
 
-    let notFoundMsg = document.getElementById('notFoundMsg');
     if (!found) {
-      if (!notFoundMsg) {
-        notFoundMsg = document.createElement('li');
-        notFoundMsg.id = 'notFoundMsg';
-        notFoundMsg.style.color = 'red';
-        notFoundMsg.style.fontWeight = 'bold';
-        notFoundMsg.style.textAlign = 'center';
-        notFoundMsg.style.padding = '1rem';
-        ul.appendChild(notFoundMsg);
+      if (!document.getElementById('notFoundMsg')) {
+        const msg = document.createElement('li');
+        msg.id = 'notFoundMsg';
+        msg.textContent = "Item not found in this store or item sold out.";
+        document.getElementById('bearingList').appendChild(msg);
       }
-      notFoundMsg.textContent = "Item not found in this store or item sold out.";
     } else {
-      if (notFoundMsg) {
-        notFoundMsg.remove();
-      }
+      document.getElementById('notFoundMsg')?.remove();
     }
   }
 
@@ -329,13 +329,11 @@
   function decrement(index) {
     const qty = document.getElementById(`qty-${index}`);
     const value = parseInt(qty.textContent);
-    if (value > 0) {
-      qty.textContent = value - 1;
-    }
+    if (value > 0) qty.textContent = value - 1;
   }
 
   function goHome() {
-    window.location.href = "homepage.html";
+    window.location.href = "searchitem.html";
   }
 </script>
 
