@@ -1,157 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Search Item - Sri Krishna Spares and Fabrications</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f7f9fc;
-        }
+  <meta charset="UTF-8" />
+  <title>Search Item - Sri Krishna Spares and Fabrications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fb;
+    }
 
-        header {
-            background: linear-gradient(to right, #003366, #0055a5);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
+    header {
+      background: linear-gradient(to right, #003366, #0055a5);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: color 0.3s, transform 0.3s;
-        }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-        h1:hover {
-            color: #ffd700;
-            transform: scale(1.05);
-        }
+    h1:hover {
+      color: #ffdb4d;
+      transform: scale(1.03);
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+    nav a {
+      background-color: #ffdb4d;
+      color: #003366;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
 
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ffdb4d;
-            transform: translateY(-2px);
-        }
+    nav a:hover {
+      background-color: #ffd000;
+      color: #000;
+      transform: translateY(-2px);
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
+    nav a:active {
+      background-color: #e6b800;
+      transform: scale(0.97);
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
 
-        .item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
 
-        .item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 15px;
-            display: block;
-        }
+    .item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-        .item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
+    .item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      display: block;
+    }
 
-        .item-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-            pointer-events: none;
-        }
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
 
-        a {
-            text-decoration: none;
-        }
-    </style>
+    .item-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 10px;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 8px 14px;
+      }
+
+      .item img {
+        height: 140px;
+      }
+
+      .item-text {
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .item img {
+        height: 130px;
+      }
+
+      .item-text {
+        font-size: 14px;
+      }
+
+      .container {
+        margin: 20px 10px;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Search Items</h1>
-    <nav>
-        <a href="homepage.html">Home</a>
-    </nav>
+  <h1>Search Items</h1>
+  <nav>
+    <a href="homepage.html">Home</a>
+  </nav>
 </header>
 
 <div class="container">
-    <div class="grid">
-        <a href="oils.html" class="item">
-            <img src="engine oil.jpg" alt="Oils">
-            <div class="item-text">Oils</div>
-        </a>
-        <a href="filters.html" class="item">
-            <img src="filters.png" alt="Filters">
-            <div class="item-text">Filters</div>
-        </a>
-        <a href="Bearings.html" class="item">
-            <img src="bearing.jpg" alt="Bearings">
-            <div class="item-text">Bearings</div>
-        </a>
-        <a href="belts.html" class="item">
-            <img src="belt.jpg" alt="Belts">
-            <div class="item-text">Belts</div>
-        </a>
-        <a href="nutsbolts.html" class="item">
-            <img src="nuts.jpg" alt="Nuts and Bolts">
-            <div class="item-text">Nuts & Bolts</div>
-        </a>
-        
-        <a href="lights_bulbs.html" class="item">
-            <img src="Spare Parts Images/Lights/background.jpg" alt="Locks">
-            <div class="item-text">Lights & Bulbs</div>
-        </a>
-        <a href="Oil_Seals.html" class="item">
-            <img src="Spare Parts Images/All/oilseal.jpg" alt="Locks">
-            <div class="item-text">Oil Seals</div>
-        </a>
-
-        <a href="grease.html" class="item">
-            <img src="Spare Parts Images/oils/Grease.jpeg" alt="Locks">
-            <div class="item-text">Grease</div>
-        </a>
-    </div>
+  <div class="grid">
+    <a href="oils.html" class="item">
+      <img src="engine oil.jpg" alt="Oils">
+      <div class="item-text">Oils</div>
+    </a>
+    <a href="filters.html" class="item">
+      <img src="filters.png" alt="Filters">
+      <div class="item-text">Filters</div>
+    </a>
+    <a href="Bearings.html" class="item">
+      <img src="bearing.jpg" alt="Bearings">
+      <div class="item-text">Bearings</div>
+    </a>
+    <a href="belts.html" class="item">
+      <img src="belt.jpg" alt="Belts">
+      <div class="item-text">Belts</div>
+    </a>
+    <a href="nutsbolts.html" class="item">
+      <img src="nuts.jpg" alt="Nuts and Bolts">
+      <div class="item-text">Nuts & Bolts</div>
+    </a>
+    <a href="lights_bulbs.html" class="item">
+      <img src="Spare Parts Images/Lights/background.jpg" alt="Lights">
+      <div class="item-text">Lights & Bulbs</div>
+    </a>
+    <a href="Oil_Seals.html" class="item">
+      <img src="Spare Parts Images/All/oilseal.jpg" alt="Oil Seals">
+      <div class="item-text">Oil Seals</div>
+    </a>
+    <a href="grease.html" class="item">
+      <img src="Spare Parts Images/oils/Grease.jpeg" alt="Grease">
+      <div class="item-text">Grease</div>
+    </a>
+  </div>
 </div>
 
 </body>
