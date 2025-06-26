@@ -1,200 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Oils - Sri Krishna Spares and Fabrications</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f6f9;
-        }
-        header {
-            background: linear-gradient(to right, #003366, #0055a5);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: color 0.3s, transform 0.3s;
-        }
-        h1:hover {
-            color: #ffd700;
-            transform: scale(1.05);
-        }
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        nav a:hover, nav a:active {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ffdb4d;
-            transform: translateY(-2px);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        .search-bar {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .search-bar input {
-            width: 80%;
-            max-width: 500px;
-            padding: 12px 20px;
-            border: 2px solid #003366;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-        }
-        p.desc {
-            text-align: center;
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .gallery-item {
-            background: #f0f6ff;
-            border-radius: 15px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            visibility: visible;
-            opacity: 1;
-            height: auto;
-        }
-        .gallery-item.hidden {
-            visibility: hidden;
-            opacity: 0;
-            pointer-events: none;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .gallery-item h3 {
-            margin: 10px 0 5px 0;
-            color: #003366;
-        }
-        .gallery-item p {
-            color: #555;
-            font-size: 15px;
-        }
-        #notfound {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 18px;
-            color: red;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Oils - Sri Krishna Spares and Fabrications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+    }
+
+    header {
+      background: linear-gradient(to right, #003366, #0055a5);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    h1:hover {
+      color: #ffd700;
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a:active {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffdb4d;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      width: 80%;
+      max-width: 500px;
+      padding: 12px 20px;
+      border: 2px solid #003366;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    p.desc {
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      background: #f0f6ff;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+    }
+
+    .gallery-item.hidden {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .gallery-item h3 {
+      margin: 10px 0 5px 0;
+      color: #003366;
+    }
+
+    .gallery-item p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    #notfound {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: 18px;
+      color: red;
+      margin-top: 20px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .search-bar input {
+        width: 90%;
+        font-size: 15px;
+      }
+
+      .gallery-item img {
+        height: 160px;
+      }
+
+      .gallery-item h3 {
+        font-size: 16px;
+      }
+
+      .gallery-item p {
+        font-size: 14px;
+      }
+
+      .container {
+        padding: 1rem;
+        margin: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Oils</h1>
-    <nav>
-        <a href="homepage.html">Home</a>
-    </nav>
+  <h1>Oils</h1>
+  <nav>
+    <a href="homepage.html">Home</a>
+  </nav>
 </header>
 
 <div class="container" id="main-container">
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for oils...">
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for oils...">
+  </div>
+  <p class="desc">List of different oils (engine oil, hydraulic oil, gear oil, etc.)</p>
+
+  <!-- Gallery of oils -->
+  <div class="gallery" id="gallery">
+    <div class="gallery-item" onclick="location.href='engine-oil.html'">
+      <img src="engineoil.jpg" alt="Engine Oil">
+      <h3>Engine Oil</h3>
+      <p>Protects and extends engine life.</p>
     </div>
-    <p class="desc">List of different oils (engine oil, hydraulic oil, gear oil, etc.)</p>
 
-    <!-- Gallery of oils -->
-    <div class="gallery" id="gallery">
-        <div class="gallery-item" onclick="location.href='engine-oil.html'">
-            <img src="engineoil.jpg" alt="Engine Oil">
-            <h3>Engine Oil</h3>
-            <p>Protects and extends engine life.</p>
-        </div>
-
-        <div class="gallery-item" onclick="location.href='hyaudralicoils.html'">
-            <img src="hydraulicoil.jpg" alt="Hydraulic Oil">
-            <h3>Hydraulic Oil</h3>
-            <p>Reliable performance under pressure.</p>
-        </div>
-
-        <div class="gallery-item" onclick="location.href='gearoils.html'">
-            <img src="gearoil.jpg" alt="Gear Oil">
-            <h3>Gear Oil</h3>
-            <p>High load-carrying capacity and wear protection.</p>
-        </div>
-
-        
+    <div class="gallery-item" onclick="location.href='hyaudralicoils.html'">
+      <img src="hydraulicoil.jpg" alt="Hydraulic Oil">
+      <h3>Hydraulic Oil</h3>
+      <p>Reliable performance under pressure.</p>
     </div>
+
+    <div class="gallery-item" onclick="location.href='gearoils.html'">
+      <img src="gearoil.jpg" alt="Gear Oil">
+      <h3>Gear Oil</h3>
+      <p>High load-carrying capacity and wear protection.</p>
+    </div>
+  </div>
 </div>
 
 <script>
-    const searchInput = document.getElementById('searchInput');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const gallery = document.getElementById('gallery');
+  const searchInput = document.getElementById('searchInput');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const gallery = document.getElementById('gallery');
 
-    searchInput.addEventListener('input', function() {
-        const searchText = this.value.toLowerCase();
-        let anyVisible = false;
+  searchInput.addEventListener('input', function() {
+    const searchText = this.value.toLowerCase();
+    let anyVisible = false;
 
-        // Remove "Item Not Found" if already present
-        const existingNotFound = document.getElementById('notfound');
-        if (existingNotFound) {
-            existingNotFound.remove();
-        }
+    const existingNotFound = document.getElementById('notfound');
+    if (existingNotFound) {
+      existingNotFound.remove();
+    }
 
-        galleryItems.forEach(item => {
-            const title = item.querySelector('h3').innerText.toLowerCase();
-            if (title.includes(searchText)) {
-                item.classList.remove('hidden');
-                anyVisible = true;
-            } else {
-                item.classList.add('hidden');
-            }
-        });
-
-        if (!anyVisible) {
-            gallery.insertAdjacentHTML('beforeend', `<p id="notfound">Item not found</p>`);
-        }
+    galleryItems.forEach(item => {
+      const title = item.querySelector('h3').innerText.toLowerCase();
+      if (title.includes(searchText)) {
+        item.classList.remove('hidden');
+        anyVisible = true;
+      } else {
+        item.classList.add('hidden');
+      }
     });
+
+    if (!anyVisible) {
+      gallery.insertAdjacentHTML('beforeend', `<p id="notfound">Item not found</p>`);
+    }
+  });
 </script>
 
 </body>
