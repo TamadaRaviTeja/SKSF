@@ -2,88 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Air Filter</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diesel Filter</title>
     <style>
-        body { 
-            margin:0; 
-            font-family: 'Poppins', sans-serif; 
-            background: #f0f6ff; /* Set body background to the gallery item color */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header { 
-            background: linear-gradient(to right, #003366, #0055a5); 
-            color:white; 
-            padding:1rem 2rem; 
-            display:flex; 
-            justify-content:space-between; 
-            align-items:center; 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f6ff;
         }
 
-        h1 { 
-            margin:0; 
-            font-size:28px; 
+        header {
+            background: linear-gradient(to right, #003366, #0055a5);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .container { 
-            max-width:1200px; 
-            margin:30px auto; 
-            padding:2rem; 
-            background:white; /* Keeping the container white */
-            border-radius:20px; 
-            box-shadow:0 8px 16px rgba(0,0,0,0.2);
-        }
-
-        .search-bar { 
-            text-align: center; 
-            margin: 20px 0; 
-        }
-
-        .search-bar input {
-            width: 80%;
-            max-width: 500px;
-            padding: 12px 20px;
-            border: 2px solid #003366;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            transition: all 0.3s ease;
-            margin-top: 20px; /* Adds space between the search bar and gallery */
-        }
-
-        .item {
-            background: white; /* Change the item background to white */
-            border-radius: 15px; 
-            padding: 15px; 
-            text-align: center; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
-            min-height: 450px; 
-            transition: all 0.3s ease; 
-            opacity: 0; 
-            transform: translateY(20px); 
-        }
-
-        .item img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain; /* Adjusts the image to fit inside the container */
-            border-radius: 10px;
-        }
-
-        .item h3 { 
-            margin:10px 0 5px; 
-            color:#003366; 
-        }
-
-        .item p { 
-            color:#555; 
-            margin:5px 0; 
+        h1 {
+            margin: 0;
+            font-size: 28px;
         }
 
         .back-btn {
@@ -92,13 +37,83 @@
             padding: 10px 20px;
             border: none;
             border-radius: 8px;
-            margin-top: 20px;
-            display: inline-block;
             text-decoration: none;
+            font-size: 14px;
         }
 
-        .back-btn:hover { 
-            background: #0055a5; 
+        .back-btn:hover {
+            background: #0055a5;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+            padding: 0 1rem;
+        }
+
+        .search-bar input {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border: 2px solid #003366;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .item {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            min-height: 450px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+
+        .item.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .item img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .item h3 {
+            margin: 10px 0 5px;
+            color: #003366;
+            font-size: 18px;
+        }
+
+        .item p {
+            color: #555;
+            margin: 5px 0;
+            font-size: 15px;
         }
 
         .not-found {
@@ -109,90 +124,125 @@
             display: none;
         }
 
-        .item.show {
-            opacity: 1;
-            transform: translateY(0);
-            display: block; /* Show the item when it matches */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .back-btn {
+                font-size: 13px;
+                padding: 8px 16px;
+            }
+
+            .search-bar input {
+                font-size: 15px;
+                padding: 10px 16px;
+            }
+
+            .item img {
+                height: 200px;
+            }
+
+            .item h3 {
+                font-size: 16px;
+            }
+
+            .item p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .back-btn {
+                background-color: #b48311;
+            }
+
+            .search-bar input {
+                font-size: 14px;
+                padding: 8px 14px;
+            }
+
+            .item img {
+                height: 200px;
+            }
+
+            .item h3 {
+                font-size: 20px;
+            }
+
+            .item p {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Air Filter</h1>
+    <h1>Diesel Filter</h1>
     <a href="filters.html" class="back-btn">← Back to Filters</a>
 </header>
 
-<!-- Search Bar -->
 <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search Engine Oils...">
+    <input type="text" id="searchInput" placeholder="Search Diesel Filters...">
 </div>
 
 <div class="container" id="gallery-container">
     <div class="gallery" id="gallery">
         <div class="item">
-            <img src="Mahindra Air Filter.jpg" alt="Engine Oil 1">
-            <h3>Mahindra Air Filter</h3>
+            <img src="Diesel Filter Kit.jpg" alt="Diesel Filter Kit UNO MINDA">
+            <h3>Diesel Filter Kit</h3>
             <p>High quality Filter</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
+            <p><strong>Quantity: 2 Piece</strong></p>
+            <p><strong>Company: UNO MINDA</strong></p>
+            <p><strong>Price: ₹190</strong></p>
+        </div>
+
+        <div class="item">
+            <img src="Diesel Filter Kit2.jpg" alt="Diesel Filter Kit elofic">
+            <h3>Diesel Filter Kit</h3>
+            <p>High quality Filter</p>
+            <p><strong>Quantity: 2 Piece</strong></p>
             <p><strong>Company: elofic</strong></p>
-            <p><strong>Price: ₹200</strong></p>
+            <p><strong>Price: ₹140</strong></p>
         </div>
 
         <div class="item">
-            <img src="Swaraj Air Filter.jpg" alt="Engine Oil 2">
-            <h3>Swaraj(735) Air Filter</h3>
-            <p>High quality Filter</p>
+            <img src="Tata Ace maga BS3 & BS4.jpg" alt="Tata Ace Diesel Filter">
+            <h3>Tata Ace mega BS3 & BS4 (Dicor Engine)</h3>
+            <p>High quality Diesel Filter</p>
             <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: elofic</strong></p>
-            <p><strong>Price: ₹340</strong></p>
+            <p><strong>Company: Bosch</strong></p>
+            <p><strong>Price: ₹1400</strong></p>
         </div>
 
         <div class="item">
-            <img src="BLRO-SCRPO-THR-MXI TRUCK.jpg" alt="Engine Oil 3">
-            <h3>BLRO-SCRPO-THR-MXI TRUCK Air Filter</h3>
-            <p>High quality Filter</p>
+            <img src="Escotts - Eicher - New Holloand.jpg" alt="Escorts Eicher Diesel Filter">
+            <h3>Escorts - Eicher - New Holland</h3>
+            <p>High quality Diesel Filter</p>
             <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: elofic</strong></p>
-            <p><strong>Price: ₹400</strong></p>
+            <p><strong>Company: Bosch</strong></p>
+            <p><strong>Price: ₹370</strong></p>
         </div>
-
-        <div class="item">
-            <img src="Toofan-Traveller-trax Crusier.jpg" alt="Engine Oil 3">
-            <h3>Toofan-Traveller-trax Crusier Air Filter</h3>
-            <p>High quality Filter</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: MFC</strong></p>
-            <p><strong>Price: ₹450</strong></p>
-        </div>
-
-        <div class="item">
-            <img src="GC MAX-RE 205.jpg" alt="Engine Oil 3">
-            <h3>GC MAX-RE 205 Air Filter</h3>
-            <p>High quality Filter</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: Purolator</strong></p>
-            <p><strong>Price: ₹230</strong></p>
-        </div>
-
-        <div class="item">
-            <img src="Magic IRIS.jpg" alt="Engine Oil 3">
-            <h3>Magic IRIS Air Filter</h3>
-            <p>High quality Filter</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: Purolator</strong></p>
-            <p><strong>Price: ₹250</strong></p>
-        </div>
-
-        <div class="item">
-            <img src="Sonalika Engine Oil FIlter1.jpg" alt="Engine Oil 3">
-            <h3>Escorts Engine Oil Filter</h3>
-            <p>High quality Filter</p>
-            <p><strong>Quantity: 1 Piece</strong></p>
-            <p><strong>Company: elofic</strong></p>
-            <p><strong>Price: ₹180</strong></p>
-        </div>
-        
     </div>
 
     <div id="notFoundMessage" class="not-found">Item Not Found</div>
@@ -204,35 +254,28 @@
     const allItems = Array.from(gallery.querySelectorAll('.item'));
     const notFoundMessage = document.getElementById('notFoundMessage');
 
-    // Initially show all items when the page loads
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         allItems.forEach(item => {
             setTimeout(() => item.classList.add('show'), 100);
         });
     });
 
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         const searchText = this.value.trim().toLowerCase();
 
-        // Hide all items initially
         allItems.forEach(item => {
-            item.classList.remove('show'); // Remove the animation class
-            item.style.display = 'none';  // Hide all items initially
+            item.classList.remove('show');
+            item.style.display = 'none';
         });
 
-        let matchedItems = [];
-
-        allItems.forEach(item => {
-            const title = item.querySelector('h3').innerText.toLowerCase();
-            if (title.includes(searchText)) {
-                matchedItems.push(item); // Push matched item into the array
-            }
-        });
+        const matchedItems = allItems.filter(item =>
+            item.querySelector('h3').innerText.toLowerCase().includes(searchText)
+        );
 
         if (matchedItems.length > 0) {
             matchedItems.forEach(item => {
-                item.style.display = 'block';  // Show matched items
-                setTimeout(() => item.classList.add('show'), 0);  // Add show class to trigger animation
+                item.style.display = 'block';
+                setTimeout(() => item.classList.add('show'), 0);
             });
             notFoundMessage.style.display = 'none';
         } else {
