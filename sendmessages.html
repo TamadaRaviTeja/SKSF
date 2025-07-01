@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send a Message</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #eef;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2 align="center">Send Message to Admin</h2>
+<form action="message.php" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="text" name="mobile" placeholder="Mobile Number" required>
+  <input type="text" name="village" placeholder="Village" required>
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <label>Upload Image (optional)</label>
+  <input type="file" name="image">
+  <button type="submit">Send Message</button>
+</form>
+
+</body>
+</html>
