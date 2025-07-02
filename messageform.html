@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Message</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeInBody 1.5s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 500px;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
+      color: #343a40;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #28a745;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #28a745, #218838);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #218838, #1e7e34);
+      transform: scale(1.02);
+    }
+
+    #responseMessage {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #155724;
+      text-align: center;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Message Box</h1>
+    <form id="feedbackForm" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="mobile" placeholder="Mobile Number" required />
+      <input type="text" name="city" placeholder="City" required />
+      <textarea name="message" placeholder="Your Feedback" required></textarea>
+      <input type="file" name="image" accept="image/*" />
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="responseMessage"></p>
+  </div>
+
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      const response = await fetch("send-feedback", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.text();
+      document.getElementById("responseMessage").innerText = result;
+    });
+  </script>
+</body>
+</html>
