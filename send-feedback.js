@@ -14,7 +14,7 @@ app.use(express.static(__dirname));
 
 // Serve index.html from root
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'messageform.html'));
 });
 
 // Email sending with optional image attachment
