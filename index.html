@@ -153,6 +153,14 @@
       50% { border-color: transparent; }
     }
 
+    .whatsapp-btn{
+      width:70px;
+      position: fixed;
+      top:90%;
+      left:90%;
+      transform: translate(-50%,-50%);
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -255,7 +263,7 @@
     <a href="searchitem.html">Search Item</a>
     <a href="contact.html">Contact</a>
     <a href="payment.html">Payment</a>
-    <a href="messageform.html" id="authLink">Message</a>
+    <a href="allitems.html" id="authLink">All Items</a>
   </nav>
 </header>
 
@@ -266,6 +274,10 @@
   <div class="image-container">
     <img src="tractor.png" alt="Spare parts" class="round-image">
   </div>
+
+  <div class="whatsapp-btn" id="openFormBtn">
+      <a href="whatsapp.html" ><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whats-app-image"></a>
+    </div>
 </div>
 
 <script>
