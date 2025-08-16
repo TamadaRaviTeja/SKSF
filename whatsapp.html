@@ -19,8 +19,7 @@ body {
 
 /* Main container */
 .main-div {
-  width: 90%;
-  max-width: 40%;
+  width: 50%;
   background: rgba(104, 104, 104,0.5);
   padding: 30px 25px;
   border-radius: 20px;
@@ -167,7 +166,7 @@ body {
 
 @media (max-width: 768px) {
   .main-div {
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
   }
   .whatsapp-logo img {
@@ -183,14 +182,24 @@ body {
   }
   .send-btn {
     font-size: 15px;
-    padding: 12px 18px;
+    padding: 15px 18px;
   }
+  .whatsapp-form input[type="text"],
+.whatsapp-form input[type="tel"] {
+  padding: 12px 6px;
+  background-color: #353535;
+}
 }
 
 @media (max-width: 480px) {
+  body{
+      background: linear-gradient(135deg, rgb(37, 211, 102), rgb(139, 255, 176));
+
+  }
   .main-div {
-    width: 95%;
-    padding: 15px;
+    width:80%;
+    height:500px;
+   
   }
   .whatsapp-logo img {
     width: 50px;
@@ -213,7 +222,10 @@ body {
 </head>
 <body>
   <div class="main-div">
-    
+    <div class="whatsapp-logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <h2>Send us a Message</h2>
+  </div>
   <form id="whatsappForm" class="whatsapp-form">
       <label>Your Name:
         <input type="text" id="custName" required>
@@ -241,7 +253,7 @@ body {
     const product = document.getElementById('productName').value;
     const emergency = document.querySelector('input[name="emergency"]:checked').value;
 
-    const businessNumber = "918249161345"; // ← Replace with your WhatsApp number
+    const businessNumber = "917064885533"; // ← Replace with your WhatsApp number
     const message = `Name:- ${name} \n Mobile No :-${phone} \n Product Name :- "${product}" \n Emergency: ${emergency}.`;
 
     window.open(`https://wa.me/${businessNumber}?text=${encodeURIComponent(message)}`, "_blank");
