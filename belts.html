@@ -29,7 +29,6 @@
       flex: 1 1 100%;
       text-align: left;
       margin-bottom: 10px;
-
     }
 
     header button {
@@ -43,9 +42,9 @@
       cursor: pointer;
       transition: background 0.3s ease;
       position: absolute;
-      left:85%;
-      top:5%;
-      transform: translate(-50%,-50%);
+      left: 85%;
+      top: 5%;
+      transform: translate(-50%, -50%);
     }
 
     header button:hover {
@@ -129,32 +128,9 @@
       background-color: #eaf4ff;
     }
 
-    .quantity-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .quantity-controls button {
-      padding: 0.3rem 0.6rem;
-      font-size: 1.1rem;
-      background: #003366;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .quantity-controls button:hover {
-      background-color: #0055aa;
-    }
-
-    .quantity-controls span {
-      min-width: 24px;
-      display: inline-block;
-      text-align: center;
+    .quantity {
       font-weight: bold;
+      color: #003366;
     }
 
     @media (max-width: 768px) {
@@ -181,11 +157,6 @@
         align-items: flex-start;
         font-size: 1rem;
       }
-
-      .quantity-controls {
-        width: 100%;
-        justify-content: flex-start;
-      }
     }
 
     @media (max-width: 480px) {
@@ -194,31 +165,17 @@
         padding: 0.4rem 0.8rem;
       }
 
-      .quantity-controls button {
-        font-size: 1rem;
-      }
-
       .search-bar input {
         font-size: 0.9rem;
         padding: 0.5rem;
       }
-      .companies {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      padding-bottom: 10px;
-      align-items: center;
-      justify-content: center;
-    }
-      header button{
 
+      header button {
         position: absolute;
-        top:4%;
-        left:68%;
-        transform: translate(-50%,-50%);
-    }
+        top: 4%;
+        left: 68%;
+        transform: translate(-50%, -50%);
+      }
     }
   </style>
 </head>
@@ -245,17 +202,17 @@
 <script>
   const bearingsData = {
     standardvbelt: [
-      { number: 'A-32', price: 120 }, { number: 'A-33', price: 125 }, { number: 'A-34', price: 130 },
-      { number: 'A-35', price: 135 }, { number: 'A-36', price: 140 }, { number: 'A-37', price: 145 },
-      { number: 'B-30', price: 150 }, { number: 'B-31', price: 150 }, { number: 'B-32', price: 160 },
-      { number: 'B-33', price: 160 }, { number: 'B-34', price: 170 }, { number: 'B-35', price: 170 },
-      { number: 'B-36', price: 180 }, { number: 'B-37', price: 180 }, { number: 'B-39', price: 190 },
-      { number: 'B-40', price: 200 }, { number: 'B-41', price: 200 }, { number: 'B-42', price: 210 },
-      { number: 'B-46', price: 210 }, { number: 'B-51', price: 250 }, { number: 'B-52', price: 250 },
-      { number: 'B-53', price: 250 }, { number: 'B-54', price: 250 }, { number: 'B-55', price: 250 },
-      { number: 'B-56', price: 250 }, { number: 'B-57', price: 250 }, { number: 'B-74', price: 300 },
-      { number: 'B-76', price: 300 }, { number: 'B-77', price: 300 }, { number: 'B-78', price: 300 },
-      { number: 'B-80', price: 350 },
+      { number: 'A-32', price: 120 ,quantity:'2'}, { number: 'A-33', price: 125 ,quantity:'2'}, { number: 'A-34', price: 130 ,quantity:'0'},
+      { number: 'A-35', price: 135 ,quantity:'4'}, { number: 'A-36', price: 140 ,quantity:'4'}, { number: 'A-37', price: 145 ,quantity:'2'},
+      { number: 'B-30', price: 150 ,quantity:'2'}, { number: 'B-31', price: 150 ,quantity:'3'}, { number: 'B-32', price: 160 ,quantity:'3'},
+      { number: 'B-33', price: 160 ,quantity:'3'}, { number: 'B-34', price: 170 ,quantity:'3'}, { number: 'B-35', price: 170 ,quantity:'0'},
+      { number: 'B-36', price: 180 ,quantity:'0'}, { number: 'B-37', price: 180 ,quantity:'3'}, { number: 'B-39', price: 190 ,quantity:'3'},
+      { number: 'B-40', price: 200 ,quantity:'3'}, { number: 'B-41', price: 200 ,quantity:'2'}, { number: 'B-42', price: 210 ,quantity:'2'},
+      { number: 'B-46', price: 210 ,quantity:'1'}, { number: 'B-51', price: 250 ,quantity:'1'}, { number: 'B-52', price: 250 ,quantity:'4'},
+      { number: 'B-53', price: 250 ,quantity:'0'}, { number: 'B-54', price: 250 ,quantity:'2'}, { number: 'B-55', price: 250 ,quantity:'2'},
+      { number: 'B-56', price: 250 ,quantity:'4'}, { number: 'B-57', price: 250 ,quantity:'2'}, { number: 'B-74', price: 300 ,quantity:'4'},
+      { number: 'B-76', price: 300 ,quantity:'6'}, { number: 'B-77', price: 300 ,quantity:'0'}, { number: 'B-78', price: 300 ,quantity:'0'},
+      { number: 'B-80', price: 350 ,quantity:'4'},
     ],
     coggedvbelt: [
       { number: 'TRK-1290 SWARAJ-885', price: 450 }, { number: 'TRK-1240 SWARAJ/ESCORT/ZETOR', price: 400 },
@@ -268,6 +225,7 @@
     ]
   };
 
+
   let currentCompany = '';
 
   function showCompany(company) {
@@ -275,15 +233,11 @@
     const bearingList = document.getElementById('bearingList');
     bearingList.innerHTML = '';
 
-    bearingsData[company].forEach((item, index) => {
+    bearingsData[company].forEach((item) => {
       const li = document.createElement('li');
       li.innerHTML = `
         <span>${item.number} - ₹${item.price}</span>
-        <div class="quantity-controls">
-          <button onclick="decrement(${index})">−</button>
-          <span id="qty-${index}">0</span>
-          <button onclick="increment(${index})">+</button>
-        </div>
+        <span class="quantity">Qty: ${item.quantity}</span>
       `;
       bearingList.appendChild(li);
     });
@@ -323,19 +277,6 @@
       if (notFoundMsg) {
         notFoundMsg.remove();
       }
-    }
-  }
-
-  function increment(index) {
-    const qty = document.getElementById(`qty-${index}`);
-    qty.textContent = parseInt(qty.textContent) + 1;
-  }
-
-  function decrement(index) {
-    const qty = document.getElementById(`qty-${index}`);
-    const value = parseInt(qty.textContent);
-    if (value > 0) {
-      qty.textContent = value - 1;
     }
   }
 
